@@ -31,10 +31,10 @@ export function validateField(value, name, password) {
   }
 
   //Match password
-  if (!!password && value != password) {
-    errorsFormData[name].errors = [];
+  if (name == "confirm_password" && value != password) {
+    errorsFormData.confirm_password.errors = [];
 
-    errorsFormData?.confirm_password?.errors.push(
+    errorsFormData.confirm_password.errors.push(
       "The password must be the same!"
     );
   }

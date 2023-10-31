@@ -112,11 +112,7 @@ function handleBlur(event, name) {
     case "confirm_password":
       confirm_password.value = event.target.value;
 
-      validateField(
-        (confirm_password.value = event.target.value),
-        name,
-        password.value
-      );
+      validateField((confirm_password.value = event.target.value), name);
       break;
   }
 }
@@ -128,7 +124,7 @@ function doValidateForm() {
 
   validateField(email.value, "email");
   validateField(password.value, "password");
-  validateField(confirm_password.value, "confirm_password");
+  validateField(confirm_password.value, "confirm_password", password.value);
 }
 
 function isFormValid() {
@@ -146,11 +142,11 @@ function registerUser() {
     console.log("password:", password.value);
     console.log("confirm password:", confirm_password.value);
     console.groupEnd();
-  }
 
-  email.value = "";
-  password.value = "";
-  confirm_password.value = "";
+    email.value = "";
+    password.value = "";
+    confirm_password.value = "";
+  }
 }
 </script>
 
